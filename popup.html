@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Dịch Nhanh</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  
+  <!-- GIAO DIỆN CHÍNH -->
+  <div id="mainView" class="container">
+    
+    <header class="header">
+      <div class="title-group">
+        <img src="icons/icon48.png" alt="icon" class="icon">
+        <h1 class="title">Dịch Nhanh</h1>
+      </div>
+      <button id="settingsButton" class="icon-button" title="Cài đặt">
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+    </header>
+
+    <section class="lang-selector">
+      <div class="select-wrapper">
+        <label for="sourceLangSelect" class="select-label">Từ</label>
+        <select id="sourceLangSelect" class="select-field">
+          <option value="auto">Tự động phát hiện</option>
+          <option value="en">Tiếng Anh</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="ja">Tiếng Nhật</option>
+          <option value="ko">Tiếng Hàn</option>
+          <option value="zh-CN">Tiếng Trung</option>
+        </select>
+        <span class="material-symbols-outlined select-arrow">arrow_drop_down</span>
+      </div>
+      
+      <button id="swapLangButton" class="icon-button" title="Hoán đổi">
+        <span class="material-symbols-outlined">swap_horiz</span>
+      </button>
+      
+      <div class="select-wrapper">
+        <label for="targetLangSelect" class="select-label">Sang</label>
+        <select id="targetLangSelect" class="select-field">
+          <option value="vi">Tiếng Việt</option>
+          <option value="en">Tiếng Anh</option>
+          <option value="ja">Tiếng Nhật</option>
+          <option value="ko">Tiếng Hàn</option>
+          <option value="zh-CN">Tiếng Trung</option>
+        </select>
+        <span class="material-symbols-outlined select-arrow">arrow_drop_down</span>
+      </div>
+    </section>
+
+    <div class="shortcut">
+      <span class="material-symbols-outlined">keyboard</span>
+      Bôi đen &amp; nhấn <strong>Alt + Q</strong>
+    </div>
+    
+    <footer class="copyright main-copyright">
+      © 2025 Nguyễn Thành Trung
+    </footer>
+  </div>
+
+  <!-- GIAO DIỆN CÀI ĐẶT -->
+  <!-- SỬA: Xóa style="display: none;" -->
+  <div id="settingsView" class="container"> 
+    
+    <header class="header">
+      <button id="backButton" class="icon-button" title="Quay lại">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <h1 class="title settings-title">Cài đặt</h1>
+    </header>
+    
+    <!-- Giao diện -->
+    <div class="setting-row-header">
+      <span class="material-symbols-outlined">palette</span>
+      <h2 class="setting-heading">Giao diện</h2>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">Theme Tối</span>
+      <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Gemini API -->
+    <div class="setting-row-header">
+      <span class="material-symbols-outlined">auto_awesome</span>
+      <h2 class="setting-heading">Gemini API</h2>
+    </div>
+    
+    <div class="setting-row column">
+      <label for="geminiApiKey" class="setting-label">API Key</label>
+      <div class="input-group">
+        <input type="password" id="geminiApiKey" class="text-input" placeholder="Dán API Key..." disabled>
+        <button id="saveApiKeyButton" class="button" style="display: none;">Lưu</button>
+        <button id="editApiKeyButton" class="button button-edit">Sửa</button>
+      </div>
+      <span id="saveStatus" class="save-status"></span>
+    </div>
+
+    <div class="setting-row">
+      <span class="setting-label">Công cụ dịch</span>
+      <div class="radio-group">
+        <label><input type="radio" name="engine" id="engineGoogle" value="google"> Google</label>
+        <label><input type="radio" name="engine" id="engineGemini" value="gemini"> Gemini</label>
+      </div>
+    </div>
+    
+    <div class="setting-row column">
+      <label for="geminiToneSelect" class="setting-label">Văn phong</label>
+      <div class="select-wrapper">
+        <select id="geminiToneSelect" class="select-field">
+          <option value="natural">Tự nhiên</option>
+          <option value="professional">Chuyên nghiệp</option>
+          <option value="scientific">Khoa học</option>
+          <option value="simple">Đơn giản</option>
+          <option value="funny">Tấu hài</option>
+        </select>
+        <span class="material-symbols-outlined select-arrow">arrow_drop_down</span>
+      </div>
+    </div>
+
+    <footer class="copyright">
+      © 2025 Nguyễn Thành Trung
+    </footer>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

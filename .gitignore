@@ -1,0 +1,34 @@
+# File hệ thống của macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# File hệ thống của Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# File cấu hình của Editor/IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Thư mục chứa gói (phòng trường hợp dùng npm/yarn)
+/node_modules/
+/yarn.lock
+/package-lock.json
+
+# File build hoặc đóng gói (nếu có)
+/dist/
+/build/
+*.zip
+*.crx
+*.pem
+
+# File log và file tạm
+*.log
+*.tmp
+
+# File môi trường (chứa API key bí mật - nếu có)
+.env

@@ -1,6 +1,4 @@
-/* popup.css (Phiên bản 3.1.3 - Tối ưu giao diện Cài đặt) */
 
-/* === FONT LOCAL (Không đổi) === */
 @font-face {
   font-family: 'Roboto Flex';
   font-style: normal;
@@ -28,7 +26,7 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* === BIẾN MÀU MATERIAL 3 (Không đổi) === */
+
 :root {
   --md-sys-color-primary: #1565C0;
   --md-sys-color-on-primary: #FFFFFF;
@@ -74,7 +72,7 @@ html.dark-mode {
   --md-sys-color-outline-variant: #49454F;
 }
 
-/* === BASE (Không đổi) === */
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: var(--md-sys-font-family);
@@ -87,16 +85,16 @@ body {
   overflow: hidden;
 }
 
-/* === CONTAINER (SỬA: Giảm gap và padding) === */
+
 .container {
-  padding: 16px 20px; /* SỬA: Giảm padding dọc */
+  padding: 16px 20px; 
   display: flex;
   flex-direction: column;
-  gap: 14px; /* SỬA: Giảm gap */
+  gap: 14px; 
   height: 100%;
 }
 
-/* === HEADER (Không đổi) === */
+
 .header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .title-group { display: flex; align-items: center; gap: 12px; }
 .header .icon { width: 28px; height: 28px; }
@@ -105,7 +103,7 @@ body {
 .icon-button:hover { background-color: var(--md-sys-color-surface-variant); }
 .icon-button .material-symbols-outlined { font-size: 24px; }
 
-/* === LANGUAGE SELECTOR (Không đổi) === */
+
 .lang-selector { display: flex; align-items: center; gap: 8px; }
 .select-wrapper { position: relative; flex: 1; min-width: 0; }
 .select-label { position: absolute; top: -8px; left: 12px; font-size: 12px; font-weight: 500; color: var(--md-sys-color-primary); background-color: var(--md-sys-color-surface); padding: 0 4px; z-index: 1; }
@@ -116,16 +114,16 @@ body {
 #swapLangButton { background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); border-radius: 50%; }
 #swapLangButton:hover { background-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
 
-/* === SHORTCUT (Không đổi) === */
+
 .shortcut { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; font-size: 13px; color: var(--md-sys-color-on-surface-variant); background-color: var(--md-sys-color-surface-variant); border-radius: var(--md-sys-shape-corner-medium); }
 .shortcut .material-symbols-outlined { font-size: 18px; }
 .shortcut strong { padding: 2px 8px; background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); border-radius: 6px; font-weight: 700; }
 
-/* === VIEWS (Không đổi) === */
+
 #mainView { display: flex; }
 #settingsView { display: none; }
 
-/* === SETTINGS (SỬA: Tối ưu khoảng cách) === */
+
 .settings-title { flex: 1; font-size: 22px; font-weight: 700; color: var(--md-sys-color-on-surface); }
 
 .setting-row-header { 
@@ -133,8 +131,8 @@ body {
   align-items: center; 
   gap: 8px; 
   color: var(--md-sys-color-primary); 
-  margin-top: 4px; /* SỬA: Giảm */
-  margin-bottom: 4px; /* SỬA: Giảm */
+  margin-top: 4px; 
+  margin-bottom: 4px; 
 }
 .setting-row-header .material-symbols-outlined { font-size: 20px; }
 .setting-heading { margin: 0; font-size: 16px; font-weight: 700; }
@@ -144,25 +142,25 @@ body {
   flex-direction: row; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 10px 16px; /* SỬA: Giảm */
+  padding: 10px 16px; 
   background-color: var(--md-sys-color-surface-variant); 
   border-radius: var(--md-sys-shape-corner-large); 
-  min-height: 48px; /* SỬA: Giảm */
+  min-height: 48px; 
 }
 .setting-row.column { 
   flex-direction: column; 
   align-items: flex-start; 
-  gap: 8px; /* SỬA: Giảm */
-  padding: 12px 16px; /* SỬA: Giảm */
+  gap: 8px; 
+  padding: 12px 16px; 
 }
 .setting-label { font-size: 14px; font-weight: 600; color: var(--md-sys-color-on-surface); }
 
-/* === INPUT & BUTTON (SỬA: Tối ưu chiều cao) === */
+
 .input-group { display: flex; gap: 8px; width: 100%; }
 
 .text-input { 
   flex: 1; 
-  height: 40px; /* SỬA: Giảm */
+  height: 40px; 
   border: 2px solid var(--md-sys-color-outline-variant); 
   border-radius: var(--md-sys-shape-corner-medium); 
   padding: 0 12px; 
@@ -176,7 +174,7 @@ body {
 .text-input:disabled { background-color: var(--md-sys-color-surface-variant); color: var(--md-sys-color-on-surface-variant); border-color: var(--md-sys-color-outline-variant); opacity: 0.8; }
 
 .button { 
-  height: 40px; /* SỬA: Giảm */
+  height: 40px; 
   padding: 0 20px; 
   border: none; 
   border-radius: var(--md-sys-shape-corner-full); 
@@ -194,24 +192,24 @@ body {
 .button-edit { background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); }
 .save-status { font-size: 12px; font-weight: 600; color: var(--md-sys-color-primary); text-align: right; height: 16px; }
 
-/* === RADIO (Không đổi) === */
+
 .radio-group { display: flex; gap: 20px; }
 .radio-group label { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--md-sys-color-on-surface); cursor: pointer; }
 input[type="radio"] { accent-color: var(--md-sys-color-primary); width: 18px; height: 18px; }
 
-/* === SELECT IN SETTINGS (SỬA: Tối ưu chiều cao) === */
+
 .setting-row.column .select-wrapper { width: 100%; }
 .setting-row.column .select-field { 
-  height: 44px; /* SỬA: Giảm */
+  height: 44px; 
   font-size: 14px; 
-  padding: 10px 36px 10px 12px; /* SỬA: Giảm */
+  padding: 10px 36px 10px 12px; 
   border: 2px solid var(--md-sys-color-outline-variant); 
   background-color: var(--md-sys-color-surface); 
 }
 .setting-row.column .select-field:focus { border-color: var(--md-sys-color-primary); }
-.setting-row.column .select-arrow { top: 10px; /* SỬA: Căn giữa */ }
+.setting-row.column .select-arrow { top: 10px;  }
 
-/* === TOGGLE SWITCH (Không đổi) === */
+
 .switch { position: relative; display: inline-block; width: 52px; height: 32px; }
 .switch input { opacity: 0; width: 0; height: 0; }
 .slider { position: absolute; cursor: pointer; inset: 0; background-color: var(--md-sys-color-surface-variant); border: 2px solid var(--md-sys-color-outline); transition: all 0.3s; border-radius: var(--md-sys-shape-corner-full); }
@@ -219,18 +217,18 @@ input[type="radio"] { accent-color: var(--md-sys-color-primary); width: 18px; he
 input:checked + .slider { background-color: var(--md-sys-color-primary); border-color: var(--md-sys-color-primary); }
 input:checked + .slider:before { background-color: var(--md-sys-color-on-primary); transform: translateX(20px); }
 
-/* === COPYRIGHT (SỬA: Tối ưu) === */
+
 .copyright { 
   text-align: center; 
   font-size: 11px; 
   color: var(--md-sys-color-on-surface-variant); 
   margin-top: auto; 
-  padding-top: 8px; /* SỬA: Giảm */
+  padding-top: 8px; 
   opacity: 0.7; 
 }
 .main-copyright { 
   border-top: 1px solid var(--md-sys-color-outline-variant); 
-  margin-top: 8px; /* SỬA: Giảm gap */
-  padding-bottom: 4px; /* SỬA: Giảm padding đáy */
+  margin-top: 8px; 
+  padding-bottom: 4px; 
 }
 

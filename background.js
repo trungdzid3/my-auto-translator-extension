@@ -1,6 +1,3 @@
-// background.js (Service Worker - Phiên bản 3.1.7 - Sửa lỗi cú pháp nghiêm trọng)
-
-// 1. Cài đặt giá trị mặc định khi cài extension - Không đổi
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.set({
     sourceLang: 'auto',
@@ -12,8 +9,6 @@ chrome.runtime.onInstalled.addListener(() => {
   });
   console.log('Cài đặt mặc định v3.1.7 (storage.local) đã được thiết lập.');
 });
-
-// 2. Lắng nghe lệnh hotkey (Alt+Q) - Không đổi
 chrome.commands.onCommand.addListener((command) => {
   if (command === 'toggle-autotranslate') {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -24,8 +19,6 @@ chrome.commands.onCommand.addListener((command) => {
     });
   }
 });
-
-// 3. Lắng nghe yêu cầu dịch TỪ CONTENT SCRIPT (Logic chính) - Không đổi
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === 'TRANSLATE_SELECTED_TEXT') {
     chrome.storage.local.get(
@@ -48,8 +41,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         } catch (error) {
           console.error("Lỗi trong quá trình dịch:", error);
         }
-
-        // Luôn gửi kết quả (kể cả null) về content.js
         chrome.tabs.sendMessage(sender.tab.id, {
           type: 'DISPLAY_TRANSLATION_RESULT',
           translatedText: translatedText,
@@ -60,10 +51,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true; 
   }
 });
-
-// --- CÁC HÀM GỌI API ---
-
-// API 1: Google Dịch - Không đổi
 async function callGoogleApi(text, sourceLang, targetLang) {
   const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
   try {
@@ -76,8 +63,6 @@ async function callGoogleApi(text, sourceLang, targetLang) {
     return null;
   }
 }
-
-// API 2: Gemini (SỬA LỖI CÚ PHÁP)
 async function callGeminiApi(text, sourceLang, targetLang, tone, apiKey) {
   const toneInstructions = { 
     'natural': "Tự nhiên, thân thiện.",
@@ -114,29 +99,23 @@ Output: Xin chào thế giới`;
       temperature: 0.7 
     }
   };
-
-  // --- SỬA LỖI CÚ PHÁP (v3.1.7) ---
   try {
     const response = await exponentialBackoff(async () => {
       return await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
-      }); // <-- THIẾU 1
-    }); // <-- THIẾU 2
-
-    // THIẾU LOGIC KIỂM TRA RESPONSE
+      }); 
+    }); 
     if (!response.ok) {
       const errorBody = await response.json();
       throw new Error(`Gemini API: HTTP error! status: ${response.status} - ${errorBody?.error?.message || 'Unknown error'}`);
     }
 
     const result = await response.json();
-    // ---------------------------------
 
     if (result.candidates?.[0]?.content?.parts?.[0]?.text) { 
       let translated = result.candidates[0].content.parts[0].text.trim();
-      // Xóa dấu ** và " " bao quanh
       if (translated.startsWith("**") && translated.endsWith("**")) {
         translated = translated.substring(2, translated.length - 2);
       }
@@ -153,8 +132,6 @@ Output: Xin chào thế giới`;
     return null;
   }
 }
-
-// Hàm hỗ trợ thử lại (Exponential Backoff) - Không đổi
 async function exponentialBackoff(fetchFunction, retries = 3, delay = 1000) {
   try {
     const response = await fetchFunction();
